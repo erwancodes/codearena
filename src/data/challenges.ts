@@ -1,0 +1,163 @@
+import type { Challenge } from '@/types/codearena'
+import { challengeTranslations } from '@/lib/i18n'
+
+const baseChallenges: Challenge[] = [
+  {
+    id: 'searchable-user-list',
+    title: 'Searchable User List',
+    description: 'Build a searchable, filterable user list with a clean empty state.',
+    category: 'React',
+    skill: 'State & filtering',
+    difficulty: 'Intermediate',
+    estimatedMinutes: 30,
+    xp: 150,
+    requirements: ['Create reusable components', 'Use a controlled search input', 'Filter users by name and email', 'Handle the empty state', 'Keep the layout responsive'],
+    bonus: ['Keyboard navigation', 'Highlight matching text'],
+    tags: ['React', 'useState', 'Forms'],
+  },
+  {
+    id: 'todo-app',
+    title: 'Todo App',
+    description: 'Ship a small task manager with local persistence and deliberate states.',
+    category: 'React', skill: 'Component architecture', difficulty: 'Intermediate', estimatedMinutes: 45, xp: 150,
+    requirements: ['Add, complete, and remove tasks', 'Split the UI into focused components', 'Persist the list locally', 'Show a helpful empty state'], bonus: ['Filter by status', 'Undo deletion'], tags: ['React', 'localStorage', 'State'],
+  },
+  {
+    id: 'modal-component',
+    title: 'Modal Component',
+    description: 'Create a reusable dialog that respects focus and escape behavior.',
+    category: 'React', skill: 'Reusable UI', difficulty: 'Advanced', estimatedMinutes: 35, xp: 200,
+    requirements: ['Expose a controlled open state', 'Trap focus inside the dialog', 'Close on Escape', 'Return focus to the trigger', 'Prevent background scroll'], bonus: ['Add a confirmation variant', 'Support reduced motion'], tags: ['React', 'Focus', 'Portals'],
+  },
+  {
+    id: 'api-dashboard',
+    title: 'API Dashboard',
+    description: 'Turn an async endpoint into a clear dashboard with loading and failure states.',
+    category: 'React', skill: 'Async UI', difficulty: 'Advanced', estimatedMinutes: 60, xp: 200,
+    requirements: ['Fetch and render remote data', 'Show a loading skeleton', 'Handle an error state', 'Keep the data shape explicit', 'Add a retry action'], bonus: ['Abort stale requests', 'Add optimistic refresh'], tags: ['React', 'fetch', 'Async'],
+  },
+  {
+    id: 'multi-step-form',
+    title: 'Multi-step Form',
+    description: 'Build a resilient form flow with validation, review, and back navigation.',
+    category: 'React', skill: 'Forms & validation', difficulty: 'Advanced', estimatedMinutes: 55, xp: 200,
+    requirements: ['Keep each step focused', 'Validate before advancing', 'Preserve answers when going back', 'Show field-level errors', 'Provide a review step'], bonus: ['Announce step changes', 'Persist a draft'], tags: ['React', 'Zod', 'Forms'],
+  },
+  {
+    id: 'react-debug-challenge',
+    title: 'React Debug Challenge',
+    description: 'Find the subtle state, key, and effect mistakes blocking a small app.',
+    category: 'Debug', skill: 'Debugging React', difficulty: 'WorldSkills', estimatedMinutes: 60, xp: 350,
+    requirements: ['Identify the stale effect dependency', 'Fix the unstable list keys', 'Prevent direct state mutation', 'Explain the render loop', 'Write a short fix note'], bonus: ['Spot the unnecessary render', 'Add a regression test'], tags: ['React', 'Debug', 'WorldSkills'],
+  },
+  {
+    id: 'array-transformation',
+    title: 'Array Transformation',
+    description: 'Compose predictable array utilities from a messy input dataset.',
+    category: 'JavaScript', skill: 'Array methods', difficulty: 'Beginner', estimatedMinutes: 20, xp: 50,
+    requirements: ['Group entries by category', 'Sort without mutating input', 'Remove duplicate identifiers', 'Return a stable result shape'], bonus: ['Handle missing fields', 'Explain complexity'], tags: ['JavaScript', 'Arrays'],
+  },
+  {
+    id: 'debounce-function',
+    title: 'Debounce Function',
+    description: 'Implement a reusable debounce utility and make its cancellation explicit.',
+    category: 'JavaScript', skill: 'Functions', difficulty: 'Intermediate', estimatedMinutes: 25, xp: 100,
+    requirements: ['Delay execution until idle', 'Preserve the latest arguments', 'Preserve the calling context', 'Expose cancel behavior'], bonus: ['Expose flush behavior', 'Write timing notes'], tags: ['JavaScript', 'Timing', 'Functions'],
+  },
+  {
+    id: 'fetch-api',
+    title: 'Fetch API',
+    description: 'Consume an endpoint safely and turn transport details into user-facing states.',
+    category: 'JavaScript', skill: 'Async / await', difficulty: 'Intermediate', estimatedMinutes: 30, xp: 100,
+    requirements: ['Check the response status', 'Parse JSON safely', 'Handle network failure', 'Keep a pending state visible'], bonus: ['Add request cancellation', 'Retry once on transient failure'], tags: ['JavaScript', 'API', 'Async'],
+  },
+  {
+    id: 'async-error-handling',
+    title: 'Async Error Handling',
+    description: 'Make a sequence of async operations fail clearly and recover deliberately.',
+    category: 'JavaScript', skill: 'Error handling', difficulty: 'Advanced', estimatedMinutes: 35, xp: 200,
+    requirements: ['Separate recoverable errors', 'Keep the original cause', 'Avoid swallowed promises', 'Make retry safe'], bonus: ['Add structured logging', 'Model cancellation'], tags: ['JavaScript', 'Errors', 'Async'],
+  },
+  {
+    id: 'responsive-dashboard',
+    title: 'Responsive Dashboard',
+    description: 'Translate a dense desktop dashboard into a calm mobile reading order.',
+    category: 'CSS', skill: 'Responsive design', difficulty: 'Advanced', estimatedMinutes: 45, xp: 200,
+    requirements: ['Define a mobile reading order', 'Use CSS Grid for structure', 'Avoid horizontal overflow', 'Keep actions reachable'], bonus: ['Support reduced motion', 'Add container queries'], tags: ['CSS', 'Grid', 'Responsive'],
+  },
+  {
+    id: 'css-grid-gallery',
+    title: 'CSS Grid Gallery',
+    description: 'Compose an asymmetric gallery that keeps every tile legible across breakpoints.',
+    category: 'CSS', skill: 'CSS Grid', difficulty: 'Intermediate', estimatedMinutes: 30, xp: 100,
+    requirements: ['Create a non-uniform grid', 'Maintain aspect ratios', 'Add a keyboard-visible focus state', 'Collapse to one column on small screens'], bonus: ['Add drag-to-reorder affordance', 'Use subgrid'], tags: ['CSS', 'Grid', 'Layout'],
+  },
+  {
+    id: 'animated-accordion',
+    title: 'Animated Accordion',
+    description: 'Build an accordion with a clear disclosure model and useful motion.',
+    category: 'CSS', skill: 'Transitions', difficulty: 'Beginner', estimatedMinutes: 25, xp: 50,
+    requirements: ['Use a semantic disclosure pattern', 'Animate open and close', 'Keep focus visible', 'Respect reduced motion'], bonus: ['Allow one panel at a time', 'Animate height without layout jump'], tags: ['CSS', 'Motion', 'A11y'],
+  },
+  {
+    id: 'semantic-landing-page',
+    title: 'Semantic Landing Page',
+    description: 'Give a simple page a meaningful document outline and purposeful landmarks.',
+    category: 'HTML', skill: 'Semantic HTML', difficulty: 'Beginner', estimatedMinutes: 20, xp: 50,
+    requirements: ['Use meaningful landmarks', 'Keep heading levels logical', 'Label navigation', 'Use buttons for actions'], bonus: ['Add skip navigation', 'Check the accessibility tree'], tags: ['HTML', 'Semantics'],
+  },
+  {
+    id: 'accessible-modal',
+    title: 'Accessible Modal',
+    description: 'Build a modal that a keyboard and screen-reader user can trust.',
+    category: 'Accessibility', skill: 'Keyboard navigation', difficulty: 'Intermediate', estimatedMinutes: 30, xp: 150,
+    requirements: ['Give the dialog an accessible name', 'Move focus into the dialog', 'Close on Escape', 'Return focus to the trigger', 'Hide inert background content'], bonus: ['Announce validation errors', 'Test with a screen reader'], tags: ['Accessibility', 'ARIA', 'Focus'],
+  },
+  {
+    id: 'keyboard-navigation',
+    title: 'Keyboard Navigation',
+    description: 'Make a compact action palette usable without a mouse.',
+    category: 'Accessibility', skill: 'Interaction patterns', difficulty: 'Advanced', estimatedMinutes: 40, xp: 200,
+    requirements: ['Define a predictable tab order', 'Support arrow-key movement', 'Show focus clearly', 'Avoid keyboard traps'], bonus: ['Add typeahead search', 'Document the key map'], tags: ['Accessibility', 'Keyboard'],
+  },
+  {
+    id: 'rest-api-contract',
+    title: 'REST API Contract',
+    description: 'Read an API contract and design the UI states before writing the request.',
+    category: 'Web fundamentals', skill: 'HTTP & APIs', difficulty: 'Intermediate', estimatedMinutes: 35, xp: 100,
+    requirements: ['Identify method and status codes', 'Model success and failure', 'Validate the payload shape', 'Explain cache implications'], bonus: ['Design an offline fallback', 'Document pagination'], tags: ['HTTP', 'REST', 'Web'],
+  },
+  {
+    id: 'browser-devtools-audit',
+    title: 'Browser DevTools Audit',
+    description: 'Use the browser tools to isolate layout, performance, and accessibility defects.',
+    category: 'Web fundamentals', skill: 'Browser DevTools', difficulty: 'WorldSkills', estimatedMinutes: 45, xp: 350,
+    requirements: ['Locate the layout shift', 'Find the slow asset', 'Inspect computed styles', 'Run an accessibility check', 'Write a prioritised fix list'], bonus: ['Record a performance trace', 'Compare before and after'], tags: ['DevTools', 'Performance', 'WorldSkills'],
+  },
+  {
+    id: 'ui-rebuild-dashboard',
+    title: 'UI Rebuild: Dashboard',
+    description: 'Reproduce a reference dashboard while keeping hierarchy and spacing honest.',
+    category: 'UI rebuild', skill: 'Visual implementation', difficulty: 'Advanced', estimatedMinutes: 75, xp: 200,
+    requirements: ['Map the reference hierarchy', 'Recreate the responsive structure', 'Match the spacing rhythm', 'Name interactive states', 'Keep the implementation accessible'], bonus: ['Add a visual diff pass', 'Document tradeoffs'], tags: ['UI rebuild', 'Layout', 'CSS'],
+  },
+  {
+    id: 'ui-rebuild-login',
+    title: 'UI Rebuild: Login Screen',
+    description: 'Turn a visual reference into a focused, keyboard-friendly sign-in screen.',
+    category: 'UI rebuild', skill: 'Visual implementation', difficulty: 'Intermediate', estimatedMinutes: 40, xp: 150,
+    requirements: ['Match the reference composition', 'Label fields correctly', 'Handle validation', 'Provide a loading state', 'Keep the CTA reachable on mobile'], bonus: ['Add password visibility toggle', 'Support autofill'], tags: ['UI rebuild', 'Forms', 'Responsive'],
+  },
+  {
+    id: 'worldskills-full-stack',
+    title: 'WorldSkills Web Brief',
+    description: 'Deliver a polished multi-view frontend under a fixed competition brief.',
+    category: 'Web fundamentals', skill: 'Competition readiness', difficulty: 'WorldSkills', estimatedMinutes: 120, xp: 500,
+    requirements: ['Plan before coding', 'Create a clear component system', 'Meet responsive requirements', 'Handle accessibility basics', 'Test the final flow'], bonus: ['Add a second breakpoint pass', 'Write a handoff note'], tags: ['WorldSkills', 'Planning', 'Frontend'],
+  },
+]
+
+export const challenges: Challenge[] = baseChallenges.map((challenge) => {
+  const translation = challengeTranslations[challenge.id]
+  return translation ? { ...challenge, ...translation } : challenge
+})

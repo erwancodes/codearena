@@ -1,0 +1,10 @@
+import { Link } from '@tanstack/react-router'
+import { CheckCircle2, Clock3, Play, Zap } from 'lucide-react'
+import type { Challenge } from '@/types/codearena'
+import { Badge, Button, DifficultyBadge } from '@/components/ui'
+import { categoryLabels, statusLabels } from '@/lib/i18n'
+
+export function ChallengeCard({ challenge }: { challenge: Challenge }) {
+  const statusLabel = statusLabels[challenge.status ?? 'not-started']
+  return <article className="group surface-panel-flat flex flex-col gap-3 rounded-[9px] p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#3e6e9d] hover:bg-[#142d49]"><div className="flex items-start justify-between gap-3"><div className="flex flex-wrap items-center gap-2"><Badge tone={challenge.category === 'React' ? 'blue' : challenge.category === 'Accessibility' ? 'purple' : challenge.category === 'JavaScript' ? 'yellow' : challenge.category === 'HTML' ? 'red' : 'green'}>{categoryLabels[challenge.category]}</Badge><DifficultyBadge difficulty={challenge.difficulty} /></div>{challenge.status === 'completed' ? <CheckCircle2 size={16} className="text-[#54d1ad]" /> : null}</div><div className="flex-1"><h3 className="text-[14px] font-semibold tracking-[-.02em] text-[#edf4fc]">{challenge.title}</h3><p className="mt-1.5 text-[11px] leading-5 text-[#86a1bd]">{challenge.description}</p></div><div className="flex flex-wrap items-center gap-3 border-t border-[#26445f] pt-3 text-[10px] text-[#7f9bb8]"><span className="inline-flex items-center gap-1"><Clock3 size={12} /> {challenge.estimatedMinutes} min</span><span className="inline-flex items-center gap-1 text-[#f3cf58]"><Zap size={12} /> {challenge.xp} XP</span><span className="ml-auto text-[#9bb2ca]">{statusLabel}</span></div><Link to="/challenges/$challengeId" params={{ challengeId: challenge.id }} className="w-full"><Button variant={challenge.status === 'completed' ? 'secondary' : 'primary'} className="w-full">{challenge.status === 'in-progress' ? 'Reprendre' : challenge.status === 'completed' ? 'Revoir le challenge' : 'Démarrer le challenge'} <Play size={12} fill="currentColor" /></Button></Link></article>
+}
