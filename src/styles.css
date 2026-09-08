@@ -7,13 +7,48 @@
   color: #e8f0fb;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
 }
 
 * { box-sizing: border-box; }
-html { background: #08111f; }
-body { margin: 0; min-width: 320px; background: #08111f; }
+html { background: #08111f; overflow-x: hidden; }
+body { margin: 0; min-width: 320px; background: #08111f; overflow-x: hidden; overscroll-behavior-x: none; }
 button, input, select, textarea { font: inherit; }
-button { cursor: pointer; }
+button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+input, select, textarea { max-width: 100%; }
+
+.app-header {
+  padding-top: env(safe-area-inset-top);
+}
+
+.app-main {
+  padding-bottom: calc(6rem + env(safe-area-inset-bottom));
+}
+
+.mobile-drawer-panel {
+  padding-top: max(1.25rem, env(safe-area-inset-top));
+  padding-bottom: calc(1.25rem + env(safe-area-inset-bottom));
+}
+
+.mobile-modal-viewport {
+  padding-top: max(1rem, env(safe-area-inset-top));
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+.mobile-tabbar {
+  bottom: calc(.75rem + env(safe-area-inset-bottom));
+}
+
+.ios-code-editor {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  tab-size: 2;
+}
+
+.react-preview-frame {
+  display: block;
+  max-width: 100%;
+}
 
 ::selection { background: rgba(66, 147, 255, .35); color: #f6f9ff; }
 
@@ -50,4 +85,17 @@ button { cursor: pointer; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
+
+@media (min-width: 1024px) {
+  .app-main { padding-bottom: 1.5rem; }
+}
+
+@media (max-width: 639px) {
+  input, select, textarea { font-size: 16px !important; }
+  .mobile-tabbar a, .mobile-tabbar button { min-height: 44px; }
+}
+
+@media (pointer: coarse) and (hover: none) {
+  input, select, textarea { font-size: 16px !important; }
 }

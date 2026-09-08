@@ -10,7 +10,7 @@ export function Button({ children, variant = 'primary', className = '', type = '
     ghost: 'bg-transparent text-[#9eb5cf] hover:bg-[#1a3049] hover:text-white',
     danger: 'bg-[#682d3a] text-[#ffcbd2] border border-[#a84c5d] hover:bg-[#81394a]',
   }
-  return <button type={type} onClick={onClick} disabled={disabled} className={`focus-ring inline-flex items-center justify-center gap-2 rounded-[7px] px-3.5 py-2 text-[12px] font-semibold tracking-[.01em] transition-all duration-200 active:translate-y-px disabled:cursor-not-allowed disabled:opacity-50 ${variants[variant]} ${className}`}>{children}</button>
+  return <button type={type} onClick={onClick} disabled={disabled} className={`focus-ring inline-flex min-h-11 items-center justify-center gap-2 rounded-[7px] px-3.5 py-2 text-[12px] font-semibold tracking-[.01em] transition-all duration-200 active:translate-y-px disabled:cursor-not-allowed disabled:opacity-50 sm:min-h-0 ${variants[variant]} ${className}`}>{children}</button>
 }
 
 export function Badge({ children, tone = 'blue', className = '' }: { children: ReactNode; tone?: 'blue' | 'green' | 'yellow' | 'purple' | 'red' | 'slate'; className?: string }) {
@@ -31,7 +31,7 @@ export function DifficultyBadge({ difficulty }: { difficulty: Difficulty }) {
 }
 
 export function Panel({ children, className = '', title, action }: { children: ReactNode; className?: string; title?: string; action?: ReactNode }) {
-  return <section className={`surface-panel rounded-[10px] ${className}`}>
+  return <section className={`surface-panel min-w-0 rounded-[10px] ${className}`}>
     {title ? <div className="flex items-center justify-between border-b thin-rule px-4 py-3"><h2 className="text-[12px] font-semibold text-[#dce9f8]">{title}</h2>{action}</div> : null}
     {children}
   </section>
@@ -46,7 +46,7 @@ export function ProgressBar({ value, color = '#438ef3', className = '' }: { valu
 }
 
 export function StatCard({ label, value, caption, icon: Icon, color = '#4da3ff', progress, pulse = false }: { label: string; value: string; caption?: string; icon: React.ComponentType<{ size?: number; strokeWidth?: number }>; color?: string; progress?: number; pulse?: boolean }) {
-  return <div className="surface-panel-flat min-h-[104px] rounded-[8px] px-3.5 py-3"><div className="flex items-start justify-between"><div className="flex items-center gap-2"><span className="grid h-7 w-7 place-items-center rounded-[6px]" style={{ backgroundColor: `${color}1c`, color }}><Icon size={15} strokeWidth={1.8} /></span><span className="text-[10px] text-[#86a0bc]">{label}</span></div>{pulse ? <span className="signal-pulse mt-1 h-1.5 w-1.5 rounded-full bg-[#53d5ad]" /> : null}</div><p className="mt-3 text-[21px] font-semibold tracking-[-.04em] text-[#f5f8fd]">{value}</p>{caption ? <p className="mt-0.5 text-[10px] text-[#718ba7]">{caption}</p> : null}{progress !== undefined ? <ProgressBar value={progress} color={color} className="mt-3" /> : null}</div>
+  return <div className="surface-panel-flat min-w-0 min-h-[104px] rounded-[8px] px-3.5 py-3"><div className="flex items-start justify-between"><div className="flex min-w-0 items-center gap-2"><span className="grid h-7 w-7 shrink-0 place-items-center rounded-[6px]" style={{ backgroundColor: `${color}1c`, color }}><Icon size={15} strokeWidth={1.8} /></span><span className="truncate text-[10px] text-[#86a0bc]">{label}</span></div>{pulse ? <span className="signal-pulse mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[#53d5ad]" /> : null}</div><p className="mt-3 text-[21px] font-semibold tracking-[-.04em] text-[#f5f8fd]">{value}</p>{caption ? <p className="mt-0.5 truncate text-[10px] text-[#718ba7]">{caption}</p> : null}{progress !== undefined ? <ProgressBar value={progress} color={color} className="mt-3" /> : null}</div>
 }
 
 export function ListArrow() { return <ChevronRight size={14} className="text-[#7795b4]" /> }
