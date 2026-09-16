@@ -5,6 +5,8 @@ export type ChallengeCategory =
   | 'HTML'
   | 'Accessibility'
   | 'Web fundamentals'
+  | 'Backend API'
+  | 'Prisma ORM'
   | 'Debug'
   | 'UI rebuild'
 
@@ -66,4 +68,6 @@ export const skillColors: Record<string, string> = {
   HTML: '#f06b4a',
   Accessibility: '#a28bff',
   'Web fundamentals': '#2fc4a6',
+  'Backend API': '#35c6a8',
+  'Prisma ORM': '#a78bfa',
 }

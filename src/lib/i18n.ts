@@ -14,6 +14,8 @@ export const categoryLabels: Record<ChallengeCategory, string> = {
   HTML: 'HTML',
   Accessibility: 'Accessibilité',
   'Web fundamentals': 'Fondamentaux du web',
+  'Backend API': 'Backend · API REST',
+  'Prisma ORM': 'Backend · Prisma ORM',
   Debug: 'Débogage',
   'UI rebuild': 'Reproduction UI',
 }
@@ -25,6 +27,8 @@ export const skillLabels: Record<string, string> = {
   HTML: 'HTML',
   Accessibility: 'Accessibilité',
   'Web fundamentals': 'Fondamentaux du web',
+  'Backend API': 'Backend · API REST',
+  'Prisma ORM': 'Prisma ORM & bases de données',
 }
 
 export const statusLabels: Record<ChallengeStatus, string> = {
@@ -51,6 +55,10 @@ export const challengeTranslations: Record<string, { title: string; description:
   'accessible-modal': { title: 'Fenêtre modale accessible', description: 'Construis une modale fiable pour les utilisateurs clavier et lecteurs d’écran.', requirements: ['Donner un nom accessible à la boîte de dialogue', 'Déplacer le focus dans la modale', 'Fermer avec Échap', 'Rendre le focus au déclencheur', 'Masquer le contenu d’arrière-plan inactif'], bonus: ['Annoncer les erreurs de validation', 'Tester avec un lecteur d’écran'] },
   'keyboard-navigation': { title: 'Navigation au clavier', description: 'Rends une palette d’actions compacte utilisable sans souris.', requirements: ['Définir un ordre de tabulation prévisible', 'Gérer les déplacements avec les flèches', 'Afficher clairement le focus', 'Éviter les pièges clavier'], bonus: ['Ajouter une recherche par saisie', 'Documenter les raccourcis'] },
   'rest-api-contract': { title: 'Contrat d’API REST', description: 'Lis un contrat d’API et conçois les états d’interface avant la requête.', requirements: ['Identifier la méthode et les statuts', 'Modéliser le succès et l’échec', 'Valider la forme de la réponse', 'Expliquer les implications du cache'], bonus: ['Concevoir un fallback hors ligne', 'Documenter la pagination'] },
+  'rest-api-crud': { title: 'API REST de gestion de tâches', description: 'Construis un backend CRUD complet avec des routes REST, de la validation et des réponses HTTP cohérentes.', requirements: ['Créer les routes GET, POST, PATCH et DELETE', 'Valider les paramètres et le corps des requêtes', 'Retourner des codes HTTP adaptés', 'Centraliser la gestion des erreurs', 'Tester les cas de succès et d’échec'], bonus: ['Ajouter une pagination', 'Documenter l’API avec OpenAPI'] },
+  'rest-api-auth': { title: 'Authentification d’une API REST', description: 'Protège une API avec une authentification claire et des règles d’autorisation côté serveur.', requirements: ['Créer une route de connexion', 'Stocker les mots de passe de façon sécurisée', 'Vérifier l’identité sur les routes protégées', 'Distinguer authentification et autorisation', 'Ne jamais exposer de donnée sensible'], bonus: ['Ajouter un renouvellement de session', 'Limiter les tentatives de connexion'] },
+  'prisma-data-model': { title: 'Modélisation de données avec Prisma', description: 'Conçois un schéma Prisma relationnel puis prépare la base de données avec une migration reproductible.', requirements: ['Définir les modèles et leurs types', 'Créer une relation entre deux modèles', 'Ajouter les contraintes et index utiles', 'Générer et appliquer une migration', 'Vérifier les données avec Prisma Studio'], bonus: ['Ajouter des données de seed', 'Documenter les choix de modélisation'] },
+  'prisma-rest-api': { title: 'API REST connectée avec Prisma', description: 'Relie une API REST à une base de données avec Prisma Client et des requêtes robustes.', requirements: ['Initialiser un Prisma Client partagé', 'Créer une ressource en base de données', 'Lire une liste avec ses relations', 'Mettre à jour et supprimer une ressource', 'Gérer les erreurs et les enregistrements absents'], bonus: ['Ajouter pagination et filtres', 'Regrouper une opération dans une transaction'] },
   'browser-devtools-audit': { title: 'Audit des DevTools', description: 'Utilise les outils du navigateur pour isoler les défauts de layout, performance et accessibilité.', requirements: ['Localiser le décalage de mise en page', 'Trouver la ressource lente', 'Inspecter les styles calculés', 'Lancer un contrôle d’accessibilité', 'Rédiger une liste de corrections priorisée'], bonus: ['Enregistrer une trace de performance', 'Comparer avant et après'] },
   'ui-rebuild-dashboard': { title: 'Reproduction UI : tableau de bord', description: 'Reproduis un tableau de bord de référence sans perdre sa hiérarchie ni son rythme d’espacement.', requirements: ['Cartographier la hiérarchie visuelle', 'Recréer la structure responsive', 'Respecter le rythme d’espacement', 'Nommer les états interactifs', 'Garder l’implémentation accessible'], bonus: ['Ajouter une passe de comparaison visuelle', 'Documenter les compromis'] },
   'ui-rebuild-login': { title: 'Reproduction UI : écran de connexion', description: 'Transforme une référence visuelle en écran de connexion ciblé et navigable au clavier.', requirements: ['Respecter la composition de référence', 'Étiqueter correctement les champs', 'Gérer la validation', 'Fournir un état de chargement', 'Garder le CTA accessible sur mobile'], bonus: ['Ajouter l’affichage du mot de passe', 'Prendre en charge l’autoremplissage'] },

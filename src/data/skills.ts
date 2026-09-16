@@ -5,6 +5,8 @@ export const skillProgress = [
   { name: 'HTML', score: 0, delta: '', color: '#f06b4a' },
   { name: 'Accessibility', score: 0, delta: '', color: '#a28bff' },
   { name: 'Web fundamentals', score: 0, delta: '', color: '#2fc4a6' },
+  { name: 'Backend API', score: 0, delta: '', color: '#35c6a8' },
+  { name: 'Prisma ORM', score: 0, delta: '', color: '#a78bfa' },
 ]
 
 export const defaultProgress = {

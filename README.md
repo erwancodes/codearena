@@ -9,7 +9,7 @@ L’application est en français, fonctionne sans compte et conserve la progress
 - onboarding en deux étapes avec nom, axe de départ et niveau initial ;
 - tutoriel guidé rejouable pour comprendre le tableau de bord, l’entraînement et la progression ;
 - tableau de bord sans statistiques inventées ;
-- bibliothèque de challenges React, JavaScript, CSS, HTML, accessibilité et fondamentaux du web ;
+- bibliothèque de challenges frontend React/CSS, backend avec API REST, Prisma ORM et bases de données, JavaScript, HTML, accessibilité et fondamentaux du web ;
 - React Lab avec éditeur `App.jsx`, aperçu React isolé dans le navigateur, vérifications, erreurs de rendu et brouillons locaux ;
 - minuteurs de session, XP, niveaux, séries, scores et progression par compétence ;
 - mode compétition WorldSkills ;

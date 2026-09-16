@@ -1,4 +1,4 @@
-import { ArrowRight, Braces, Code2, FileCode2, Globe2, Keyboard, LayoutGrid, Shuffle, Sparkles } from 'lucide-react'
+import { ArrowRight, Braces, Code2, Database, FileCode2, Globe2, Keyboard, LayoutGrid, ServerCog, Shuffle, Sparkles } from 'lucide-react'
 import { Link } from '@tanstack/react-router'
 import { challenges } from '@/data/challenges'
 import { skillProgress } from '@/data/skills'
@@ -7,7 +7,9 @@ import { Badge, Button, DifficultyBadge, Panel } from '@/components/ui'
 import { categoryLabels, skillLabels } from '@/lib/i18n'
 
 const areas = [
-  { name: 'React', detail: 'Composants, hooks, gestion d’état', icon: Code2, color: '#4da3ff' },
+  { name: 'React', detail: 'Frontend React, composants et intégration CSS', icon: Code2, color: '#4da3ff' },
+  { name: 'Backend API', detail: 'Serveur, routes CRUD et API REST', icon: ServerCog, color: '#35c6a8' },
+  { name: 'Prisma ORM', detail: 'Schémas, migrations et bases de données', icon: Database, color: '#a78bfa' },
   { name: 'JavaScript', detail: 'ES6+, asynchrone, tableaux, DOM', icon: Braces, color: '#f4c84e' },
   { name: 'HTML', detail: 'Balisage sémantique, formulaires, SEO', icon: FileCode2, color: '#f06b4a' },
   { name: 'CSS', detail: 'Mise en page, responsive, mouvement', icon: LayoutGrid, color: '#42a5f5' },

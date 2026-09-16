@@ -8,7 +8,7 @@ import { difficultyLabels, statusLabels } from '@/lib/i18n'
 import type { ChallengeCategory, ChallengeStatus, Difficulty } from '@/types/codearena'
 
 type TabValue = 'All' | ChallengeCategory | 'WorldSkills'
-const tabs: { value: TabValue; label: string }[] = [{ value: 'All', label: 'Tous' }, { value: 'React', label: 'React' }, { value: 'JavaScript', label: 'JavaScript' }, { value: 'CSS', label: 'CSS' }, { value: 'HTML', label: 'HTML' }, { value: 'WorldSkills', label: 'WorldSkills' }]
+const tabs: { value: TabValue; label: string }[] = [{ value: 'All', label: 'Tous' }, { value: 'React', label: 'React' }, { value: 'CSS', label: 'CSS' }, { value: 'Backend API', label: 'API REST' }, { value: 'Prisma ORM', label: 'Prisma' }, { value: 'JavaScript', label: 'JavaScript' }, { value: 'HTML', label: 'HTML' }, { value: 'WorldSkills', label: 'WorldSkills' }]
 const statusOptions: { value: 'All' | ChallengeStatus; label: string }[] = [{ value: 'All', label: 'Tous' }, { value: 'not-started', label: statusLabels['not-started'] }, { value: 'in-progress', label: statusLabels['in-progress'] }, { value: 'completed', label: statusLabels.completed }]
 
 export function ChallengesView({ compact = false }: { compact?: boolean }) {
